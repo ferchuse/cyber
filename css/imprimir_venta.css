@@ -1,0 +1,107 @@
+/* ----- Estilos: "Ticket" ----- */
+
+.ticket {
+	max-width: 8cm;
+	margin-top: 15px;
+	margin-bottom: 3px;
+	font-family: calibri, sans-serif, arial;
+}
+
+/* ----- Estilos: "Encabezado" Del Ticket ----- */
+
+.encabezado .empresa {
+	font-size: 14.5px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.encabezado .venta .datos {
+	font-size: 12.5px;
+	padding: 10px;
+	margin: 0;
+}
+
+.encabezado .venta .datos .etiquetas {
+	font-weight: bold;
+}
+
+/* ----- Estilos: "Cuerpo" Del Ticket ----- */
+
+.cuerpo .lista {
+	font-size: 12.5px;
+	border: none;
+	margin-top: 5px;
+}
+
+.cuerpo .lista .encabezados {
+	padding: 0;
+	border: none;
+}
+
+.cuerpo .lista .encabezados .uno .descripcion{
+	padding: 2px
+}
+
+.cuerpo .lista .encabezados .dos {
+	font-size: 13px;
+	font-weight: bold
+}
+
+.cuerpo .lista .encabezados .dos .cantidad{
+	width: 50px
+}
+
+.cuerpo .lista .productos {
+	padding: 0;
+	border: none;
+	line-height: 12px;
+}
+
+.cuerpo .lista .productos .uno td {
+	border: none;
+	padding: 0;
+}
+
+.cuerpo .lista .productos .dos td {
+	border: none;
+	line-height: 12px;
+}
+
+.cuerpo .lista .total {
+	font-size: 13px;
+}
+
+/* ----- Estilos: "Pie" Del Ticket ----- */
+
+.pie .letras{
+	font-size: 12px;
+}
+
+.pie .mensaje{
+	font-size: 13.5px;
+	font-weight: bold;
+}
+
+/* ----- Estilos "Margin", "Padding" & "Border" ----- */
+
+.margin-padding-none {
+	margin: 0;
+	padding: 0;
+}
+
+.margin-none {
+	margin: 0;
+}
+
+.padding-none {
+	padding: 0;
+}
+
+.border-none {
+	border: none;
+}
+
+.border-green {
+	border-color: green;
+	border-style: dashed;
+}
