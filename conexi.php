@@ -4,7 +4,7 @@ function Conectarse()
 	
 	$host="localhost";
 	
-	if($_SERVER["SERVER_NAME"] == "elarkaoz.micrositio.mx"){
+	if($_SERVER["SERVER_NAME"] == "micrositio.mx"){
 		//echo "_SERVER".$_SERVER["SERVER_NAME"];
 		$db="microsit_cyber";
 		$usuario="microsit_practic";
