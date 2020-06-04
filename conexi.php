@@ -4,7 +4,7 @@ function Conectarse()
 	
 	$host="localhost";
 	
-	if($_SERVER["SERVER_NAME"] == "minisuper3g.micrositio.mx"){
+	if($_SERVER["SERVER_NAME"] == "elarkaoz.micrositio.mx"){
 		//echo "_SERVER".$_SERVER["SERVER_NAME"];
 		$db="microsit_cyber";
 		$usuario="microsit_practic";
@@ -41,10 +41,10 @@ function Conectarse()
    
 	// mysqli_query($link, "SET NAMES 'utf8'") or die("Error Cambiando charset").mysqli_error($link);
 	
-	if($_SERVER["SERVER_NAME"] != "localhost"){
+	// if($_SERVER["SERVER_NAME"] != "localhost"){
 		mysqli_query($link, "SET CHARACTER SET utf8") or die("Error en charset UTF8".mysqli_error($link));
 	
-	}
+	// 	}
 	
 	
    
