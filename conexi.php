@@ -6,12 +6,12 @@ function Conectarse()
 	
 	if($_SERVER["SERVER_NAME"] == "minisuper3g.micrositio.mx"){
 		//echo "_SERVER".$_SERVER["SERVER_NAME"];
-		$db="microsit_minisuper3g";
+		$db="microsit_cyber";
 		$usuario="microsit_practic";
 		$pass="UAEH@2018";
 	}
 	else{
-		$db="minisuper3g";
+		$db="cyber";
 		$usuario="sistemas";
 		$pass="Glifom3dia";
 		$set_local = "SET time_zone = '-05:00'";
