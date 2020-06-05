@@ -2,7 +2,7 @@
 	
 	include('../conexi.php');
 	include('../funciones/numero_a_letras.php');
-	$nombre_empresa = "MINISUPER 3G";
+	$nombre_empresa = "EL ARK@ CIBER";
 	
 	$link = Conectarse();
 	$consulta = "SELECT * FROM ventas
