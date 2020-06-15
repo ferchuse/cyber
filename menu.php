@@ -14,7 +14,7 @@
 				<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="#">
-				<img src="img/logo_menu.png" class="logo">
+				<img src="img/logo_menu.png" class="img-responsive">
 			</a>
 		</div>
 		

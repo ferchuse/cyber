@@ -46,7 +46,7 @@
 							<div id="login_logo">
 								
 								
-								<img class=" img-responsive" src="logo_login.png">
+								<img class=" img-responsive" src="../img/logo.png">
 							</div>
 							
 							<?php 

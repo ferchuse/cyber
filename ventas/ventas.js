@@ -1,4 +1,4 @@
-
+var printService = new WebSocketPrinter();
 var producto_elegido ;
 
 function round(value, step) {
@@ -666,29 +666,24 @@ $("input").focus(function(){
 
 
 
-
-
 function imprimirTicket(id_ventas){
-	console.log("imprimirTicket()");
-	
+	console.log("imprimirESCPOS()");
 	
 	$.ajax({
-		url: "impresion/imprimir_venta.php",
+		url: "ventas/imprimir_ticketpos.php" ,
 		data:{
-			id_ventas : id_ventas
+			"id_ventas" : id_ventas
 		}
 		}).done(function (respuesta){
 		
-		$("#ticket").html(respuesta); 
-		window.print();
+		printService.submit({
+			'type': 'LABEL',
+			'raw_content': respuesta
+		});
 		}).always(function(){
-		
-		// boton.prop("disabled", false);
-		// icono.toggleClass("fa-print fa-spinner fa-spin");
 		
 	});
 }
-
 
 
 function beforePrint() {
