@@ -76,7 +76,7 @@
 						<div class="form-group">
 							
 							<button tabindex="-1" class="btn btn-info pull-right" id="btn_refresh">
-								<i class="fa fa-sync"></i> F4 - Cremeria
+								<i class="fa fa-sync"></i> F4 - Pendientes
 							</button>
 						</div>
 						
