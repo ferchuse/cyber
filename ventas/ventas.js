@@ -182,12 +182,24 @@ function renderProductos(tab_index, venta){
 function cobrarEImprimir(evt){
 	evt.data = {"imprimir": true};
 	evt.type = "submit";
+	
+	$("#imprimir").prop('disabled',true);
+	$("#imprimir").find(".fas").toggleClass('fa-print fa-spinner fa-spin');
+	
 	guardarVenta(evt).done(function(respuesta){
 		
 		imprimirTicket(respuesta.id_ventas);
+		}).always(function(){
+		$("#imprimir").prop('disabled',false);
+		$("#imprimir").find(".fas").toggleClass('fa-print fa-spinner fa-spin');
+		
+		
 	})
 	
 }
+
+
+
 $(document).on('keydown', disableFunctionKeys);
 
 $(document).ready( function onLoad(){
@@ -578,11 +590,11 @@ function guardarVenta(event){
 			"id_productos": $(item).find(".id_productos").val(),
 			"cantidad": $(item).find(".cantidad").val(),
 			"precio": $(item).find(".precio").val(),
-		"descripcion": $(item).find(".descripcion").val(),
-		"importe": $(item).find(".importe").val(),
-		"existencia_anterior": $(item).find(".existencia_anterior").val(),
-		"costo_proveedor": $(item).find(".costo_proveedor").val()
-		
+			"descripcion": $(item).find(".descripcion").val(),
+			"importe": $(item).find(".importe").val(),
+			"existencia_anterior": $(item).find(".existencia_anterior").val(),
+			"costo_proveedor": $(item).find(".costo_proveedor").val()
+			
 		})
 	});
 	
@@ -877,4 +889,4 @@ function calculaCambio(){
 	let pago = $("#pago").val();
 	let cambio = pago - efectivo;
 	$("#cambio").val(cambio);
-	}									
+}									
