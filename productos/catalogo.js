@@ -24,7 +24,7 @@ function listaProductos() {
 			<td class="text-center">${value.min_productos} </td>
 			<td class="text-center">${value.existencia_productos} </td>                
 			<td class="text-center">
-			<input form='form_imprimir_precios' name="id_productos[]" class="seleccionar" type="checkbox" value="${value.id_productos}">
+			<input form='form_imprimir_codigos' name="id_productos[]" class="seleccionar" type="checkbox" value="${value.id_productos}">
 			<button class="btn btn-warning btn_editar" data-id_producto="${value.id_productos}">
 			<i class="fa fa-edit"></i>
 			</button>

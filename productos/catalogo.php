@@ -56,8 +56,8 @@
 					<button type="button" class="btn btn-success pull-right" id="btn_alta">
 						<i class="fa fa-plus"></i> Nuevo
 					</button>
-					<button type="submit" form="form_imprimir_precios" class="btn btn-info pull-right" form="btn_imprimir_precios">
-						<i class="fa fa-print"></i> Imprimir Precios  
+					<button type="submit" form="form_imprimir_codigos" class="btn btn-info pull-right" >
+						<i class="fa fa-print"></i> Imprimir Códigos  
 						(<span id="cant_seleccionados">0</span>)
 					</button>
 					
@@ -104,6 +104,8 @@
 			</div>
 		</div>
 		<form id="form_imprimir_precios" action="../impresion/imprimir_precios.php">
+		</form>
+		<form id="form_imprimir_codigos" action="../impresion/imprimir_codigos.php">
 		</form>
 		<?php include('../forms/productos.php'); ?>
 		<?php include('../forms/existencias.php'); ?>
