@@ -191,17 +191,17 @@
 								<div id="tab_ventas" class="tab-pane fade in active">
 									<div style="height: 350px; overflow: auto;" class="panel-body" id="panel_ventas">
 										<div class="row text-center">
-											<div class="col-xs-1 "> <b>Turno </b></div>
-											<div class="col-xs-1"><b> Folio</b></div>
-											<div class="col-xs-1"> <b>Hora</b></div>
-											<div class="col-xs-1"> <b>Efectivo</b></div>
-											<div class="col-xs-1"> <b>Tarjeta</b></div>
-											<div class="col-xs-1"> <b>Total</b></div>
-											<div class="col-xs-2"> <b>Estatus</b></div>
-											<div class="col-xs-3 text-center hidden-xs"> Acciones</div>
+											<div class="col-xs-1 col-sm-1 hidden-xs "> <b>Turno </b></div>
+											<div class="col-xs-2 col-sm-1"><b> Folio</b></div>
+											<div class="col-xs-2 col-sm-1"> <b>Hora</b></div>
+											<div class="col-xs-2 col-sm-1"> <b>Efectivo</b></div>
+											<div class="col-xs-1 col-sm-1 hidden-xs"> <b>Tarjeta</b></div>
+											<div class="col-xs-1 col-sm-1 hidden-xs"> <b>Total</b></div>
+											<div class="col-xs-2 col-sm-1 hidden-xs"> <b>Estatus</b></div>
+											<div class="col-xs-3 col-sm-1 text-center hidden-xs"> Acciones</div>
 										</div>
 										<div class="row text-center">
-											<div class="col-xs-1 ">
+											<div class="col-xs-1 hidden-xs">
 												<input type="search" class="form-control filter" data-col_index="0" >
 											</div>
 											<div class="col-xs-1">
@@ -242,13 +242,13 @@
 												
 											?>
 											<div class="row venta <?php echo $fondo; ?> text-center focusable" style="border-bottom: solid 1px; margin-bottom: 10px;">
-												<div class="col-xs-1 text-center"><?php echo $id_turnos; ?></div>
-												<div class="col-xs-1"><?php echo $id_ventas; ?></div>
-												<div class="col-xs-1 text-center"><?php echo date("H:i", strtotime($hora_ventas)); ?></div>
-												<div class="col-xs-1"><?php echo "$" .$row_ventas["efectivo"] ?></div>
-												<div class="col-xs-1"><?php echo "$" . $row_ventas["tarjeta"] ?></div>
-												<div class="col-xs-1"><?php echo "$" . $total_ventas ?></div>
-												<div class="col-xs-2 text-center"><?php echo $estatus_ventas; ?></div>
+												<div class="col-xs-2 col-sm-1 hidden-xs text-center"><?php echo $id_turnos; ?></div>
+												<div class="col-xs-2 col-sm-1"><?php echo $id_ventas; ?></div>
+												<div class="col-xs-2 col-sm-1 text-center"><?php echo date("H:i", strtotime($hora_ventas)); ?></div>
+												<div class="col-xs-2 col-sm-1"><?php echo "$" .$row_ventas["efectivo"] ?></div>
+												<div class="col-xs-1 col-sm-1 hidden-xs"><?php echo "$" . $row_ventas["tarjeta"] ?></div>
+												<div class="col-xs-3 col-sm-1 hidden-xs"><?php echo "$" . $total_ventas ?></div>
+												<div class="col-xs-6 col-sm-1 text-center "><?php echo $estatus_ventas; ?></div>
 												<div class="col-xs-12 col-sm-3 text-right">
 													
 													<?php
