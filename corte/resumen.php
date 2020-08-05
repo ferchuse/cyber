@@ -552,6 +552,7 @@
 		
 		<?php include('forms/modal_egresos.php'); ?>
 		<?php include('forms/form_arqueo.php'); ?>
+		<?php include('imprimir_corte.php'); ?>
 		
 		
 		<?php include('../scripts_carpetas.php'); ?>
