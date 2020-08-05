@@ -189,6 +189,10 @@ function cobrarEImprimir(evt){
 	guardarVenta(evt).done(function(respuesta){
 		
 		imprimirTicket(respuesta.id_ventas);
+		
+		setTimeout(function(){
+			imprimirTicket(respuesta.id_ventas)
+		}, 6000);
 		}).always(function(){
 		$("#imprimir").prop('disabled',false);
 		$("#imprimir").find(".fas").toggleClass('fa-print fa-spinner fa-spin');
