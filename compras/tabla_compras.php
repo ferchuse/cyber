@@ -121,6 +121,10 @@
 												<a target="_blank" href="compras_nueva.php?id_compras=<?php echo $id_compras ?>"  class="btn btn-warning">
 													<i class="fas fa-edit"></i>
 												</a>
+												
+												<button hidden type="button" data-id_registro="<?php echo $id_compras ?>"  class="btn btn-success btn_ingresar hidden" title="Ingresar Inventario"> 
+													<i class="fas fa-arrow-right"></i>
+												</button>
 												<?php
 												}
 											?>

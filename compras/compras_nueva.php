@@ -10,15 +10,15 @@
 ?>
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<style>
 			<style>
 				.tabla_totales .row{
-		  	margin-bottom: 10px;
+				margin-bottom: 10px;
 				}
 				
 				
@@ -47,10 +47,10 @@
 			</style>  
 		</style>
 		
-    <title>Nueva Compra</title>
-    <?php include("../styles_carpetas.php");?>
+		<title>Nueva Compra</title>
+		<?php include("../styles_carpetas.php");?>
 	</head>
-  <body>
+	<body>
 		
 		<?php include("../menu_carpetas.php");?>
 		
@@ -75,13 +75,16 @@
 						<?php echo generar_select($link, "proveedores", "id_proveedores", "nombre_proveedores");?>
 					</div>
 					<div class="col-sm-2">
-						<label>
-							<input checked type="checkbox" id="entrada_inventario" value="PENDIENTE"> Entrada a Inventario 
+						<label class="clearfix">
+							Estatus:
 						</label> 
 						<select class="form-control" name="estatus_compras">
 							<option >PENDIENTE</option>
 							<option >FINALIZADA</option>
 						</select >
+						<label>
+							<input type="checkbox" id="entrada_inventario" value="PENDIENTE"> Entrada a Inventario 
+						</label> 
 					</div>
 					<div class="col-sm-1">
 						<div class="form-group">
@@ -102,7 +105,9 @@
 									<th class="text-center">Cantidad</th>
 									<th class="text-center">Unidad</th>
 									<th class="text-center">Descripcion del Producto</th>
-									<th class="text-center">Precio Unitario</th>
+									<th hidden class="text-center">Costo</th>
+									<th hidden class="text-center">Piezas/KG</th>
+									<th class="text-center">Costo Compra</th>
 									<th class="text-center">Importe</th>
 									<th class="text-center">Existencia</th>
 									<th class="text-center">Acciones</th>
@@ -113,36 +118,36 @@
 							</tbody>
 						</table>
 					</div>
+				</div>
+			</div>
+			
+			<br>
+			<section id="footer">
+				<div class="row lead">
+					
+					
+					<div class="col-sm-1 col-sm-offset-6 ">
+						<strong>TOTAL:</strong>
+					</div>
+					<div class="col-sm-2 ">
+						<input readonly id="total" type="number" class="form-control input-lg text-right " value="0" name="total">
+					</div>
+					
+					<div class="col-sm-2 text-right">
+						<button class="btn btn-success btn-lg" FORM="" id="cerrar_venta">
+							<i class="fas fa-save"></i> Guardar
+						</button>
 					</div>
 				</div>
-				
-				<br>
-				<section id="footer">
-					<div class="row lead">
-						
-						
-						<div class="col-sm-1 col-sm-offset-6 ">
-							<strong>TOTAL:</strong>
-						</div>
-						<div class="col-sm-2 ">
-							<input readonly id="total" type="number" class="form-control input-lg text-right " value="0" name="total">
-						</div>
-						
-						<div class="col-sm-2 text-right">
-							<button class="btn btn-success btn-lg" FORM="" id="cerrar_venta">
-								<i class="fas fa-save"></i> Guardar
-							</button>
-						</div>
-					</div>
-				</section>
-			</div>
-			<div id="ticket" class="visible-print">
-				
-			</div>
-			<?php include('../scripts_carpetas.php'); ?>
-			<?php include('../forms/modal_venta.php'); ?>
-			<?php include('../forms/modal_granel.php'); ?>
-			<script src="compras.js"></script>
+			</section>
+		</div>
+		<div id="ticket" class="visible-print">
 			
-		</body>
-	</html>						
+		</div>
+		<?php include('../scripts_carpetas.php'); ?>
+		<?php include('../forms/modal_venta.php'); ?>
+		<?php include('../forms/modal_granel.php'); ?>
+		<script src="compras.js"></script>
+		
+	</body>
+</html>						
