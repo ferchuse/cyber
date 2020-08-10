@@ -116,7 +116,7 @@
 							<th class="text-center"> Fecha</th>
 							<th class="text-right"> Num. Ventas</th>
 							<th class="text-right"> Ingresos</th>
-							<th class="text-right"> Ganancia</th>
+							<th hidden class="text-right"> Ganancia</th>
 						</tr>
 						<?php
 							$total_ventas = 0;
@@ -131,7 +131,7 @@
 							?>
 							<tr>
 								<td class="text-center">
-									<a href="../resumen.php?fecha_ventas=<?php echo $fecha_ventas?>">
+									<a target="_blank" href="../corte/resumen.php?fecha_ventas=<?php echo $fecha_ventas?>">
 										<?php echo date("d/m/Y", strtotime($fecha_ventas));?>
 									</a>
 								</td>
@@ -141,7 +141,7 @@
 								<td class="text-right">
 									<?php echo "$".number_format($ventas_dia,2);?>
 								</td>
-								<td  class="text-right">
+								<td  hidden class="text-right">
 									<?php echo "$".number_format($ganancia_dia, 2);?>
 								</td>
 							</tr>
@@ -158,7 +158,7 @@
 								<td class="text-right"><?= number_format($total_num_ventas);?>
 								<td class="text-right"><?=number_format($total_ventas,2);?>
 								</td>
-								<td  class="text-right">
+								<td hidden class="text-right">
 									<?php 
 										echo "$". number_format($total_ganancia,2);
 									?>
@@ -187,7 +187,7 @@
 							<tr>
 								<th  onclick="sortTable(0)" class="text-left">Departamento</th>
 								<th onclick="sortTable(1)"  class="text-right">Suma</th>
-								<th onclick="sortTable(1)"  class="text-right">Ganancia</th>
+								<th hidden onclick="sortTable(1)"  class="text-right">Ganancia</th>
 								
 							</tr>
 						</thead>
@@ -205,7 +205,7 @@
 									
 									<td class="text-left"><?= $fila["nombre_departamentos"];?></td>
 									<td class="text-right"><?= number_format($fila["importe_departamento"],2);?></td>
-									<td class="text-right"><?= number_format($fila["ganancia_departamento"],2);?></td>
+									<td hidden class="text-right"><?= number_format($fila["ganancia_departamento"],2);?></td>
 									
 								</tr>
 								
@@ -222,7 +222,7 @@
 								<td class="text-right">
 									$<?= number_format($total_departemento,2);?>
 								</td>
-								<td  class="text-right">
+								<td hidden class="text-right">
 									$<?= number_format($total_ganancia,2);?>
 								</td>
 							</tr>

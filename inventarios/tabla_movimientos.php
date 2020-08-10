@@ -38,11 +38,11 @@
 	id_productos,
 	SUM(cantidad) AS entradas
 	FROM
-	almacen_movimientos 
+	compras
+	LEFT JOIN compras_detalle USING(id_compras)
 	WHERE
-	DATE(fecha_movimiento) BETWEEN '{$_POST['fecha_inicio']}'
+	DATE(fecha_compras) BETWEEN '{$_POST['fecha_inicio']}'
 	AND '{$_POST['fecha_fin']}'
-	AND tipo_movimiento = 'ENTRADA'
 	GROUP BY id_productos
 	) AS t_entradas USING (id_productos)
 	LEFT JOIN (
