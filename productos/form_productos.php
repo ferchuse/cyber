@@ -18,23 +18,15 @@
 				<label required for="unidad_productos">Unidad de Medida:</label>
 				<select  class="form-control" id="unidad_productos" name="unidad_productos">
 					<option value="">Elije...</option>
-					<option value="PZA">Pieza</option>
+					<option selected value="PZA">Pieza</option>
 					<option value="KG">A Granel</option>
 				</select>
 			</div>
 			<div class="form-group">
 				<label required for="id_departamentos">Departamento:</label>
-				<?php echo generar_select($link, "departamentos", "id_departamentos", "nombre_departamentos")?>
+				<?php echo generar_select($link, "departamentos", "id_departamentos", "nombre_departamentos", false, false, false, 1)?>
 			</div>
-			<div class="form-group ">
-				<label for="existencia_productos">Existencia:</label>
-				<input placeholder="Cantidad de productos en existencia" type="number" min="0" step="any" class="form-control" id="existencia_productos" name="existencia_productos">
-			</div>
-			<div class="form-group ">
-				<label for="min_productos">Minimo:</label>
-				<input placeholder="" type="number" min="0" class="form-control" id="min_productos" name="min_productos">
-			</div>
-			
+		
 		</div>
 		
 		
@@ -42,6 +34,11 @@
 			<div class="form-group">
 				<label for="costo_proveedor">Costo de compra:</label>
 				<input placeholder="" required type="number" min="0" step=".01" class="form-control" id="costo_proveedor" name="costo_proveedor">
+				
+			</div>
+			<div class="form-group">
+				<label for="costo_proveedor">Piezas:</label>
+				<input placeholder="" required type="number" value="1" class="form-control" id="piezas" name="piezas">
 				
 			</div>
 			<div class="form-group ">
@@ -59,8 +56,18 @@
 			<div class="form-group ">
 				<label for="precio_mayoreo">Precio Mayoreo:</label>
 				
-				<input placeholder="" type="number" min="0.1"  step=".01" class="form-control" id="precio_mayoreo" name="precio_mayoreo">
+				<input placeholder="" type="number" step=".01" class="form-control" id="precio_mayoreo" name="precio_mayoreo">
 			</div>  
+			
+			<div class="form-group ">
+				<label for="existencia_productos">Existencia:</label>
+				<input placeholder="Cantidad de productos en existencia" type="number" min="0" step="any" class="form-control" id="existencia_productos" name="existencia_productos">
+			</div>
+			<div class="form-group ">
+				<label for="min_productos">Minimo:</label>
+				<input placeholder="" type="number" min="0" value="1" class="form-control" id="min_productos" name="min_productos">
+			</div>
+			
 			
 			
 			<button type="button" class="btn btn-danger btn-lg">

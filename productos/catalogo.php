@@ -82,7 +82,7 @@
 							</tr>
 							<tr>
 								<th class="text-center">
-									<input type="text" class="form-control buscar_descripcion" data-indice="0" placeholder="Buscar descripcion">
+									<input type="text" class="form-control buscar_descripcion" data-indice="0" placeholder="Buscar descripcion" name="descripcion_productos" form="form_filtros">
 								</th>
 								<th colspan="8">
 								</th>

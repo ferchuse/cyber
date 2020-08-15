@@ -10,7 +10,7 @@
 		// $titulo = "Nuevo Producto";
 		// $busqueda = "hidden";
 		// $form = "";
-	// }
+		// }
 	// else{
 		// $busqueda = "";
 		// $titulo = "Editar Producto";
