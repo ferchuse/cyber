@@ -86,7 +86,7 @@
 		
 		
 		<?php  include('../scripts_carpetas.php'); ?>
-		<script src="editar.js"></script>
+		<script src="editar.js?v=<?= date("Ymdhis")?>"></script>
 		
 	</body>
 </html>

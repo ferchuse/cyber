@@ -53,6 +53,7 @@
 		$respuesta["estatus_venta"] = "success";
 		$respuesta["mensaje_venta"] = "Venta Guardada";
 		$respuesta["folio_venta"] = mysqli_insert_id($link);
+		$respuesta["affected_rows"] = mysqli_affected_rows($link);
 		
 		$id_ventas = mysqli_insert_id($link);
 		$respuesta["id_ventas"] = $id_ventas;

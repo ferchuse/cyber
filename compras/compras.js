@@ -76,8 +76,14 @@ $(document).ready(function(){
 	$('#form_agregar_producto').submit(function(event){
 		
 		event.preventDefault();
-	});
+	});	
 	
+	$('#form_productos').submit(guardarProducto);
+	
+	$('#codigo_productos').keypress( buscarCodigo);
+	
+	
+	$('#btn_nuevo_producto').click( nuevoProducto);
 	$('#cerrar_venta').click( guardarVenta);
 	
 	$("#cantidad").on("keyup", calcularGranel)
@@ -125,6 +131,9 @@ $(document).ready(function(){
 	
 	
 });
+
+
+
 
 function calcularGranel(event){
 	let precio = Number($("#precio").val());
@@ -204,6 +213,9 @@ function agregarProducto(producto){
 		<input class="existencia_anterior form-control" readonly  value='${producto['existencia_productos']}'> 
 		</td>
 		<td class="text-center">
+		<button title="Editar Producto" data-id_producto="${producto['id_productos']}" class="btn btn-warning btn_editar">
+		<i class="fa fa-edit"></i>
+		</button>
 		<button title="Eliminar Producto" class="btn btn-danger btn_eliminar">
 		<i class="fa fa-trash"></i>
 		</button> 
@@ -222,6 +234,7 @@ function agregarProducto(producto){
 			$(this).select();
 		});
 		$(".btn_eliminar").click(eliminarProducto);
+		$(".btn_editar").click(cargarRegistro);
 		
 		
 	}
@@ -301,6 +314,89 @@ function guardarVenta(event){
 }
 
 
+function nuevoProducto() {
+	$('#form_productos')[0].reset();
+	$('#modal_productos').modal('show');
+	
+}
+
+
+function buscarCodigo(event){
+	if(event.which == 13){
+		console.log("buscarCodigo()");
+		var input = $(this);
+		var codigoProducto = $(this).val();
+		
+		input.prop('disabled',true);
+		input.addClass('ui-autocomplete-loading');
+		
+		$.ajax({
+			url: "../control/buscar_normal.php",
+			dataType: "JSON",
+			method: 'POST',
+			data: {tabla:'productos', campo:'codigo_productos', id_campo: codigoProducto}
+			}).done(function (respuesta){
+			
+			if(respuesta.numero_filas >= 1){
+				$.each(respuesta.fila, function(name, value){
+					$("#" + name).val(value);
+				});
+			}
+			else{
+				alertify.error('Código no Encontrado');
+			}
+			
+			
+			}).always(function(){
+			
+			// input.toggleClass('ui-autocomplete-loading');
+			input.prop('disabled',false);
+			$("#descripcion_productos").focus();
+			input.removeClass('ui-autocomplete-loading');
+		});
+		
+	}
+}
+
+function cargarRegistro() {
+	
+	$('#form_productos')[0].reset();
+	
+	console.log("Partida", $(".btn_editar").index(this))
+	$("#partida").val($(".btn_editar").index(this));
+	
+	var boton = $(this);
+	var icono = boton.find('.fa');
+	icono.toggleClass('fa-pencil fa-spinner fa-spin fa-floppy-o');
+	boton.prop('disabled', true);
+	var id_productos = boton.data('id_producto');
+	$.ajax({
+		url: '../control/buscar_normal.php',
+		method: 'POST',
+		dataType: 'JSON',
+		data: { campo: 'id_productos', tabla: 'productos', id_campo: id_productos }
+		}).done(function (respuesta) {
+		if (respuesta.encontrado == 1) {
+			$.each(respuesta["fila"], function (name, value) {
+				
+				$('#input_granel').html('');
+				$.each(respuesta["fila"], function (name, value) {
+					
+					$("#form_productos").find("#" + name).val(value);
+				});
+				
+			});
+			$('h3.modal-title').text('Editar Producto');
+			$('#modal_productos').modal('show');
+		}
+		icono.toggleClass('fa-pencil fa-spinner fa-spin');
+		boton.prop('disabled', false);
+	});
+	
+}
+
+
+
 
 
 function eliminarProducto(){
@@ -362,23 +458,56 @@ function buscar(filtro,table_id,indice) {
 	return num_rows;
 }
 
-function imprimirTicket(id_ventas){
-	console.log("imprimirTicket()");
+function guardarProducto(event) {
+	event.preventDefault();
+	var boton = $(this).find(':submit');
+	var icono = boton.find('.fa');
+	boton.prop('disabled', true);
+	icono.toggleClass('fa-save fa-spinner fa-spin');
 	
+	var formulario = $(this).serializeArray();
+	// console.log("formulario: ", formulario)
+	// console.log("formulario: ", $(this).serialize())
+	$.ajax({
+		url: '../productos/guardar.php',
+		dataType: 'JSON',
+		method: 'POST',
+		data: formulario
+		}).done(function (respuesta) {
+		console.log(respuesta);
+		if (respuesta.estatus == "success") {
+			alertify.success('Se ha guardado correctamente');
+			
+			$('#modal_productos').modal("hide");
+			
+			console.log("campos: ",$("#form_productos").serializeArray())
+			
+			$.each(formulario, function(index, campo){
+				switch(campo.name){
+					
+					case "existencia_productos":
+					$("#tabla_venta tbody tr").eq($("#partida").val()).find(".existencia_anterior").val(campo.value);
+					break;
+					
+					case "costo_proveedor":
+					$("#tabla_venta tbody tr").eq($("#partida").val()).find(".precio").val(campo.value);
+					break;
+					
+					
+				}
+				
+			})
+			
+		sumarImportes();
+			
+		} 
+		else {
+			alertify.error('Error al guardar');
+			
+		}
+		}).always(function () {
+		boton.prop('disabled', false);
+		icono.toggleClass('fa-save fa-spinner fa-spin');
+	});
 	
-	// $.ajax({
-	// url: "impresion/imprimir_venta.php",
-	// data:{
-	// id_ventas : id_ventas
-	// }
-	// }).done(function (respuesta){
-	
-	// $("#ticket").html(respuesta); 
-	// window.print();
-	// }).always(function(){
-	
-	// boton.prop("disabled", false);
-	// icono.toggleClass("fa-print fa-spinner fa-spin");
-	
-	// });
-}		
+}

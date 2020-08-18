@@ -70,6 +70,15 @@
 							<input tabindex="-1" id="buscar_producto" type="text" class="form-control" size="50" placeholder="F10">
 						</div>
 					</div>
+					<div class="col-md-4 hidden">
+						<div class="form-group">
+							<label for="">Id_ventas:</label>
+							<input tabindex="-1" id="id_ventas" type="text" class="form-control" >
+							<input tabindex="-1" id="fecha_ventas" type="date" class="form-control" >
+							<input tabindex="-1" id="descontar" type="text" class="form-control" value="NO">
+							
+						</div>
+					</div>
 				</form>
 				<?php if ($_COOKIE["permiso_usuarios"] != "mostrador") { ?>
 					<div class="col-md-4">

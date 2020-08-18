@@ -189,7 +189,7 @@ function guardarProducto(event) {
 			alertify.success('Se ha guardado correctamente');
 			$('#form_productos')[0].reset();
 			if($("#accion").val() == "editar"){
-				$("#form").addClass("hidden");
+				// $("#form").addClass("hidden");
 				$("#buscar_producto").focus();
 			}
 			else{
