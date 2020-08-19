@@ -110,7 +110,7 @@
 							<thead class="bg-success">
 								<tr>
 									<th class="text-center">Cantidad</th>
-									<th class="text-center">Unidad</th>
+									<th class="text-center">Piezas </br> Por Paquete</th>
 									<th class="text-center">Descripcion del Producto</th>
 									<th hidden class="text-center">Costo</th>
 									<th hidden class="text-center">Piezas/KG</th>

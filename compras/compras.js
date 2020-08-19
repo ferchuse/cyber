@@ -225,6 +225,10 @@ function agregarProducto(producto){
 	}
 	else{
 		console.log("El producto no existe, agregarlo a la tabla");
+		
+		
+		
+		
 		$fila_producto = `<tr>
 		<td class="col-sm-1">
 		<input hidden class="id_productos"  value="${producto['id_productos']}">
@@ -233,7 +237,7 @@ function agregarProducto(producto){
 		<input hidden class="precio_mayoreo" value='${producto['precio_mayoreo']}'>
 		<input type="number"  step="any" class="cantidad form-control text-right"  value='${producto['cantidad']}'>
 		</td>
-		<td class="text-center">${producto['unidad_productos']}</td> 
+		<td class="text-center">${producto['piezas']}</td> 
 		<td class="text-center">${producto['descripcion_productos']}</td>
 		<td class="col-sm-1">
 		<input  type="number" readonly class='precio form-control' value='${producto['costo_proveedor']}'> 
@@ -546,7 +550,7 @@ function guardarProducto(event) {
 					$("#tabla_venta tbody tr").eq($("#partida").val()).find(".existencia_anterior").val(campo.value);
 					break;
 					
-					case "costo_proveedor":
+					case "costo_mayoreo":
 					$("#tabla_venta tbody tr").eq($("#partida").val()).find(".precio").val(campo.value);
 					break;
 					

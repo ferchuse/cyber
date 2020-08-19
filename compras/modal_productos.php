@@ -102,7 +102,7 @@
 									</div> 
 								</div>
 								<div class="form-group ">
-								<label for="existencia_productos">Existencia actual:</label>
+								<label for="existencia_productos">Existencia en Piezas:</label>
 								<input placeholder="Cantidad de productos en existencia" type="number" min="0" step="any" class="form-control" id="existencia_productos" name="existencia_productos">
 							</div>
 							<div class="form-group ">
