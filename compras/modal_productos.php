@@ -31,29 +31,77 @@
 						
 						
 						<div class="col-md-6">
-							<div class="form-group">
-								<label for="costo_proveedor">Costo de compra:</label>
-								<input placeholder=""  type="number" min="0" step=".01" class="form-control" id="costo_proveedor" name="costo_proveedor">
-								
-							</div>
-							<div class="form-group ">
-								<label for="">Porcentaje de Ganancia :</label>
-								
-								<input  required type="number" value="25" step=".01" class="form-control" id="ganancia_menudeo_porc" name="ganancia_menudeo_porc">
-								
-							</div>
-							<div class="form-group ">
-								<label >Precio de Venta: *</label>
-								
-								<input placeholder="PRECIO" type="number" min="0"  step=".01" class="form-control" id="precio_menudeo" name="precio_menudeo">
-								
-							</div>
-							<div class="form-group ">
-								<label for="precio_mayoreo">Precio Mayoreo:</label>
-								
-								<input placeholder="" type="number"  step=".01" class="form-control" id="precio_mayoreo" name="precio_mayoreo">
-							</div>  
-							<div class="form-group ">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="costo_mayoreo">Ultimo Costo de compra:</label>
+										<input placeholder="" readonly  type="number" min="0" step=".01" class="form-control" id="ultimo_costo_mayoreo" name="ultimo_costo_mayoreo">
+									</div>
+									<div class="form-group ">
+										
+										<label for="piezas">Piezas por Paquete:</label>
+										<input placeholder="" readonly  type="number"  step="any" class="form-control" id="ultimo_piezas" name="ultimo_piezas">
+									</div>
+									<div class="form-group ">
+										
+										<label for="costo_proveedor">Costo x Pieza:</label>
+										<input placeholder="" readonly type="number"  step="any" class="form-control" id="ultimo_costo_proveedor" name="ultimo_costo_proveedor">
+										
+									</div>
+									<div class="form-group ">
+										<label for="">Porcentaje de Ganancia :</label>
+										<input readonly  type="number"  step=".01" class="form-control" id="ultimo_ganancia_menudeo_porc" name="ultimo_ganancia_menudeo_porc">
+										
+									</div>
+									<div class="form-group ">
+										<label >Ultimo Precio de Venta: *</label>
+										
+										<input readonly placeholder="PRECIO" type="number" min="0"  step=".01" class="form-control" id="ultimo_precio_menudeo" name="ultimo_precio_menudeo">
+										
+									</div>
+									<div class="form-group ">
+										<label for="precio_mayoreo">Ultimo Precio Mayoreo:</label>
+										
+										<input readonly placeholder="" type="number"  step=".01" class="form-control" id="precio_mayoreo" name="precio_mayoreo">
+									</div> 
+								</div> 
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="costo_mayoreo">Costo de compra:</label>
+										<input placeholder=""  type="number" min="0" step=".01" class="form-control" id="costo_mayoreo" name="costo_mayoreo">
+									</div>
+									<div class="form-group ">
+										
+										<label for="piezas">Piezas por Paquete:</label>
+										<input placeholder=""  type="number"  step="any" class="form-control" id="piezas" name="piezas">
+										
+									</div>
+									<div class="form-group ">
+										
+										
+										<label for="costo_proveedor">Costo x Pieza:</label>
+										<input placeholder=""  type="number"  step="any" class="form-control" id="costo_proveedor" name="costo_proveedor">
+										
+									</div>
+									<div class="form-group ">
+										<label for="">Porcentaje de Ganancia :</label>
+										<input   type="number" value="25" step=".01" class="form-control" id="ganancia_menudeo_porc" name="ganancia_menudeo_porc">
+										
+									</div>
+									<div class="form-group ">
+										<label >Precio de Venta: *</label>
+										
+										<input placeholder="PRECIO" type="number" min="0"  step=".01" class="form-control" id="precio_menudeo" name="precio_menudeo">
+										
+									</div>
+									<div class="form-group ">
+										<label for="precio_mayoreo">Precio Mayoreo:</label>
+										
+										<input placeholder="" type="number"  step=".01" class="form-control" id="precio_mayoreo" name="precio_mayoreo">
+									</div> 
+									</div> 
+								</div>
+								<div class="form-group ">
 								<label for="existencia_productos">Existencia actual:</label>
 								<input placeholder="Cantidad de productos en existencia" type="number" min="0" step="any" class="form-control" id="existencia_productos" name="existencia_productos">
 							</div>

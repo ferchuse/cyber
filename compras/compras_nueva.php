@@ -65,7 +65,7 @@
 						<div class="form-group">
 							<label for="buscar_producto">Producto:</label> 
 							
-							<button type="button" class="btn btn-sm btn-success pull-right" id="btn_nuevo_producto">
+							<button type="button" class="btn btn-sm btn-success " id="btn_nuevo_producto">
 								<i class="fa fa-plus"></i> Nuevo
 							</button>
 							<input id="buscar_producto" autofocus  type="text" class="form-control" size="50">
@@ -76,6 +76,9 @@
 					</div>
 					<div class="col-sm-3 ">
 						<label>Proveedor</label> 
+						<button  type="button" class="btn btn-sm btn-success hidden" id="btn_nuevo_proveedor">
+							<i class="fa fa-plus"></i> Nuevo
+						</button>
 						<?php echo generar_select($link, "proveedores", "id_proveedores", "nombre_proveedores");?>
 					</div>
 					<div class="col-sm-2">

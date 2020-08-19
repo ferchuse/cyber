@@ -72,7 +72,7 @@ $(document).ready(function(){
 	}
 	
 	
-	$('#form_granel').submit(agregarGranel);
+	// $('#form_granel').submit(agregarGranel);
 	$('#form_agregar_producto').submit(function(event){
 		
 		event.preventDefault();
@@ -84,10 +84,11 @@ $(document).ready(function(){
 	
 	
 	$('#btn_nuevo_producto').click( nuevoProducto);
+	$('#btn_nuevo_proveedor').click( loadProveedores);
 	$('#cerrar_venta').click( guardarVenta);
 	
-	$("#cantidad").on("keyup", calcularGranel)
-	$("#importe").on("keyup", calcularGranel);
+	// $("#cantidad").on("keyup", calcularGranel)
+	// $("#importe").on("keyup", calcularGranel);
 	
 	$("input").focus( function selecciona_input(){
 		$(this).select();
@@ -97,7 +98,9 @@ $(document).ready(function(){
 		$("#cantidad").focus();
 	});
 	
-	
+	$('#costo_mayoreo').keyup(modificarPrecio );
+	$('#ganancia_menudeo_porc').keyup(calculaPrecioVenta );
+	$('#precio_menudeo').keyup(calculaGanancia );
 	
 	//Autocomplete Productos https://github.com/devbridge/jQuery-Autocomplete
 	$("#buscar_producto").autocomplete({
@@ -133,38 +136,68 @@ $(document).ready(function(){
 });
 
 
-
-
-function calcularGranel(event){
-	let precio = Number($("#precio").val());
-	let cantidad = Number($("#cantidad").val());
-	console.log("target",event.target.id)
+function modificarPrecio() {
+	console.log("modificarPrecio");
+	var costo_proveedor = Number($(this).val());
+	var piezas = Number($('#piezas').val());
+	var ganancia_mayoreo_porc = Number($('#ganancia_mayoreo_porc').val());
 	
-	let importe = precio * cantidad;
+	if (ganancia_mayoreo_porc != '') {
+		
+		//ganancia mayoreo
+		var ganancia_mayoreo_pesos = (ganancia_mayoreo_porc * costo_proveedor) / 100;
+		$('#ganancia_mayoreo_pesos').val(ganancia_mayoreo_pesos.toFixed(2));
+		// $('#precio_mayoreo').val((costo_proveedor+ganancia_mayoreo_pesos).toFixed(2));
+	}
 	
-	if(event.target.id == 'cantidad'){ 
+	if (piezas != '') {
+		var costo_pz = costo_proveedor / piezas;
+		$('#costo_proveedor').val(costo_pz.toFixed(2));
 		
-		$("#importe").val(importe.toFixed(2))
+		if (costo_pz != '') {
+			
+			//ganancia menudeo
+			var ganancia_menudeo_porc = Number($('#ganancia_menudeo_porc').val());
+			var ganancia_menudeo_pesos = (ganancia_menudeo_porc * costo_pz) / 100;
+			$('#ganancia_menudeo_pesos').val(ganancia_menudeo_pesos.toFixed(2));
+			
+			//precio mayoreo
+			var precio_menudeo = costo_pz + ganancia_menudeo_pesos;
+			$('#precio_menudeo').val(precio_menudeo.toFixed(2));
+			
+		}
 	}
-	else{
-		importe = Number($("#importe").val());
-		cantidad = importe / precio;
-		
-		$("#cantidad").val(cantidad.toFixed(3))
+}
+function calculaGanancia() {
+	console.log("calculaGanancia()")
+	var precio_menudeo = Number($(this).val());
+	var costo_unitario = Number($('#costo_proveedor').val());
+	
+	if (costo_unitario != '') {
+		var ganancia_menudeo_porc = ((precio_menudeo * 100) / costo_unitario) - 100;
+		$('#ganancia_menudeo_porc').val(ganancia_menudeo_porc.toFixed(2));
+		var ganancia_menudeo_pesos = precio_menudeo - costo_unitario;
+		$('#ganancia_menudeo_pesos').val(ganancia_menudeo_pesos.toFixed(2));
 		
 	}
-	console.log("importe",importe )
 }
 
-function agregarGranel(event){
-	event.preventDefault();
+function calculaPrecioVenta() {
+	console.log("calculaPrecioVenta");
 	
-	producto_elegido.cantidad = $("#cantidad").val();
-	$("#modal_granel").modal("hide");
-	agregarProducto(producto_elegido);
+	var ganancia_menudeo_porc = Number($(this).val());
+	// var costo_unitario = Number($('#costo_unitario').val());
+	var costo_unitario = Number($('#costo_proveedor').val());
 	
-	$("#buscar_producto").focus();
+	if (costo_unitario != '') {
+		var ganancia_menudeo_pesos = (ganancia_menudeo_porc * costo_unitario) / 100;
+		$('#ganancia_menudeo_pesos').val(ganancia_menudeo_pesos.toFixed(2));
+		var precio_menudeo = costo_unitario + ganancia_menudeo_pesos;
+		$('#precio_menudeo').val(precio_menudeo.toFixed(2));
+	}
+	
 }
+
 
 
 function agregarProducto(producto){
@@ -203,11 +236,9 @@ function agregarProducto(producto){
 		<td class="text-center">${producto['unidad_productos']}</td> 
 		<td class="text-center">${producto['descripcion_productos']}</td>
 		<td class="col-sm-1">
-		<input  type="number" class='precio form-control' value='${producto['costo_proveedor']}'> 
+		<input  type="number" readonly class='precio form-control' value='${producto['costo_proveedor']}'> 
 		</td>
-		<td hidden class="col-sm-1 hidden">
-		<input  type="number" class='precio form-control' value='${producto['costo_proveedor']}'> 
-		</td>
+		
 		<td class="col-sm-1"><input readonly type="number" class='importe form-control text-right' > </td>
 		<td class="col-sm-1">	
 		<input class="existencia_anterior form-control" readonly  value='${producto['existencia_productos']}'> 
@@ -319,6 +350,31 @@ function nuevoProducto() {
 	$('#modal_productos').modal('show');
 	
 }
+function loadProveedores() {
+	$.ajax({
+		"url": "../funciones/get_table.php",
+		data:{
+			"tabla": "proveedores"
+		}
+		
+		}).done(function(respuesta){
+		let proveedores =`<option value="">
+			Seleccione...
+			</option>`;
+		
+		$.each(respuesta.filas, function(index, fila){
+			proveedores += `
+			<option value="${fila.id_proveedores}">
+			${fila.nombre_proveedores}
+			</option>
+			`;	
+			
+		})
+		
+		$("#id_proveedores").html(proveedores);
+		
+	})
+}
 
 
 function buscarCodigo(event){
@@ -383,6 +439,7 @@ function cargarRegistro() {
 				$.each(respuesta["fila"], function (name, value) {
 					
 					$("#form_productos").find("#" + name).val(value);
+					$("#form_productos").find("#ultimo_" + name).val(value);
 				});
 				
 			});
@@ -498,7 +555,7 @@ function guardarProducto(event) {
 				
 			})
 			
-		sumarImportes();
+			sumarImportes();
 			
 		} 
 		else {
