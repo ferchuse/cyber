@@ -98,7 +98,7 @@
 	
 	AND estatus_ventas <> 'CANCELADO'
 	GROUP BY id_productos
-	
+	ORDER BY hora_ventas
 	";
 	
 	$result = mysqli_query($link, $consulta_productos);
