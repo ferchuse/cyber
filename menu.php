@@ -133,7 +133,7 @@
 				
 				<?php if(dame_permiso("corte/resumen.php", $link) != "Sin Acceso"){	?>
 					<li class="<?php echo $menu_activo == "resumen" ? "active" : ''; ?>">
-						<a href="corte/resumen.php">
+						<a href="corte/resumen.php?tipo_corte=dia">
 							<i class="fas fa-cash-register"></i> Corte de Caja
 						</a>
 					</li>
