@@ -95,7 +95,7 @@
 	LEFT JOIN ventas_detalle USING (id_ventas)
 	WHERE
 	fecha_ventas = '$fecha_corte'
-	AND id_sucursal = '$id_sucursal'
+	
 	AND estatus_ventas <> 'CANCELADO'
 	GROUP BY id_productos
 	
