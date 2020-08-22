@@ -86,7 +86,7 @@
 	
 	
 	
-	$consulta_productos = "SELECT
+	$consulta_productos_agrupado = "SELECT
 	SUM(cantidad) as cantidad,
 	descripcion,
 	SUM(importe) as importe
@@ -100,6 +100,23 @@
 	GROUP BY id_productos
 	ORDER BY hora_ventas
 	";
+	
+	
+	$consulta_productos = "SELECT
+	 cantidad,
+	descripcion,
+	importe
+	FROM
+	ventas
+	LEFT JOIN ventas_detalle USING (id_ventas)
+	WHERE
+	fecha_ventas = '$fecha_corte'
+	
+	AND estatus_ventas <> 'CANCELADO'
+	
+	ORDER BY hora_ventas
+	";
+	
 	
 	$result = mysqli_query($link, $consulta_productos);
 	
