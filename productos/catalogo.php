@@ -48,6 +48,21 @@
 								<option value="minimo">DEBAJO DEL MINIMO</option>
 							</select>
 						</div>
+						<div class="form-group">
+							<label for="ordenar">Ordenar Por:</label>
+							<select  class="form-control"  name="orden">
+								<option value="codigo_productos">Codigo</option>
+								<option value="existencia_productos">Existencia</option>
+								<option selected value="descripcion_productos">Descripción</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="asc">Orden:</label>
+							<select  class="form-control"  name="asc">
+								<option value="ASC">Ascendente</option>
+								<option value="DESC">Descendente</option>
+							</select>
+						</div>
 						
 						<button type="submit" class="btn btn-primary" id="btn_buscar">
 							<i class="fa fa-search"></i> Buscar
@@ -71,7 +86,7 @@
 						<thead class="bg-primary">
 							<tr>
 								<th class="text-center">Descripción</th>
-								<th class="text-center">Departamento</th>
+								<th class="text-center">Código</th>
 								<th class="text-center">Costo de Compra</th>
 								<th class="text-center">Ganancia</th>
 								<th class="text-center">Precio Venta</th>

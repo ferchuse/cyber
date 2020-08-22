@@ -10,12 +10,13 @@ if($_GET["id_departamentos"] != '') {
 if($_GET["existencia"] != '') {        
     $consulta.= " AND existencia_productos < min_productos";
 } 
+
 if($_GET["descripcion_productos"] != '') {        
     $consulta.= " AND descripcion_productos LIKE '%{$_GET["descripcion_productos"]}%'";
 } 
 //comentario X
 
-$consulta.= "  ORDER BY descripcion_productos LIMIT 1000";
+$consulta.= "  ORDER BY {$_GET["orden"]} {$_GET["asc"]}";
 $result = mysqli_query($link,$consulta);
 if(!$result){
         die("Error en $consulta" . mysqli_error($link) );
