@@ -118,9 +118,9 @@
 				</div>
 			</div>
 		</div>
-		<form id="form_imprimir_precios" action="../impresion/imprimir_precios.php">
+		<form id="form_imprimir_precios" target="_blank" action="../impresion/imprimir_precios.php">
 		</form>
-		<form id="form_imprimir_codigos" action="../impresion/imprimir_codigos.php">
+		<form id="form_imprimir_codigos" target="_blank" action="../impresion/imprimir_codigos.php">
 		</form>
 		<?php include('../forms/productos.php'); ?>
 		<?php include('../forms/existencias.php'); ?>
