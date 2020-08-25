@@ -39,7 +39,7 @@
 						<div class="barcode"></div>
 						<div class="text-bold codigo"><?php echo $producto["codigo_productos"]; ?></div>
 						
-						<?php echo $producto["descripcion_productos"]; ?>
+						<span style="font-size: 14px;"><?php echo $producto["descripcion_productos"]; ?></span>
 						
 						
 						
