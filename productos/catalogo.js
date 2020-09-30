@@ -18,7 +18,7 @@ function listaProductos() {
 			<td class="text-center">${value.descripcion_productos}</td>
 			<td class="text-center">${value.codigo_productos} </td>
 			<td class="text-center">${value.costo_proveedor} </td>
-			<td class="text-center">${value.ganancia_menudeo_porc} </td>
+			<td class="text-center">${value.ganancia_menudeo_porc} % </td>
 			<td class="text-center">${value.precio_menudeo} </td>
 			<td class="text-center">${value.precio_mayoreo} </td>                
 			<td class="text-center">${value.min_productos} </td>

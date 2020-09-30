@@ -137,21 +137,15 @@ $(document).ready(function(){
 
 
 function modificarPrecio() {
-	console.log("modificarPrecio");
-	var costo_proveedor = Number($(this).val());
+	console.log("modificarPrecio()");
+	var costo_mayoreo = Number($("#costo_mayoreo").val());
 	var piezas = Number($('#piezas').val());
-	var ganancia_mayoreo_porc = Number($('#ganancia_mayoreo_porc').val());
 	
-	if (ganancia_mayoreo_porc != '') {
-		
-		//ganancia mayoreo
-		var ganancia_mayoreo_pesos = (ganancia_mayoreo_porc * costo_proveedor) / 100;
-		$('#ganancia_mayoreo_pesos').val(ganancia_mayoreo_pesos.toFixed(2));
-		// $('#precio_mayoreo').val((costo_proveedor+ganancia_mayoreo_pesos).toFixed(2));
-	}
 	
 	if (piezas != '') {
-		var costo_pz = costo_proveedor / piezas;
+		var costo_pz = costo_mayoreo / piezas;
+		console.log("Costo Pieza: " , costo_pz);
+		
 		$('#costo_proveedor').val(costo_pz.toFixed(2));
 		
 		if (costo_pz != '') {
