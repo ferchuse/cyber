@@ -4,7 +4,10 @@
 	
 	$link = Conectarse();
 	
-	$consulta = "SELECT * FROM productos WHERE existencia_productos < min_productos AND usa_inventario = 'SI'";
+	$consulta = "SELECT * FROM productos WHERE existencia_productos < min_productos AND usa_inventario = 'SI'
+	
+	ORDER BY descripcion_productos
+	";
 	
 	$result = mysqli_query($link, $consulta);
 	
@@ -34,7 +37,9 @@
 	);
 	$sendSmtpEmail = new \SendinBlue\Client\Model\SendSmtpEmail(); // \SendinBlue\Client\Model\SendSmtpEmail | Values to send a transactional email
 	$sendSmtpEmail['to'] = array(
-	array('email'=>'ferchuse@hotmail.com', 'name'=>'Fernando Guzman')
+	array('email'=>'ferchuse@hotmail.com', 'name'=>'Fernando Guzman'),
+	array('email'=>'dosarka7@gmail.com', 'name'=>'Cyber El Ark@')
+	
 	);
 	
 	$sendSmtpEmail['templateId'] = 2;
