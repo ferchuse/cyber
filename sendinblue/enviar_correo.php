@@ -12,7 +12,7 @@
 		
 		$productos[] = [
 		"NOMBRE" => $fila["descripcion_productos"], 
-		"PRECIO" => $fila["existencia_productos"]
+		"CANTIDAD" => $fila["existencia_productos"]
 		];
 	}
 	
@@ -41,9 +41,9 @@
 	
 	'productos'=> $productos
 	
-	)
 	
 	);
+	
 	$sendSmtpEmail['headers'] = array('X-Mailin-custom'=>'custom_header_1:custom_value_1|custom_header_2:custom_value_2');
 	
 	try {
