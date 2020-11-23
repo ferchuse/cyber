@@ -39,7 +39,7 @@
 	$sendSmtpEmail['templateId'] = 2;
 	$sendSmtpEmail['params'] = array(
 	
-	'productos'=> $productos;
+	'productos'=> $productos
 	
 	)
 	
