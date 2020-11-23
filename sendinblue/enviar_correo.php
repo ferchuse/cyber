@@ -1,6 +1,6 @@
 <?php
 	require_once(__DIR__ . '/vendor/autoload.php');
-	require_once(__DIR__ . '../conexi.php');
+	require_once(__DIR__ . '/../conexi.php');
 	
 	$link = Conectarse();
 	
@@ -36,6 +36,7 @@
 	$sendSmtpEmail['to'] = array(
 	array('email'=>'ferchuse@hotmail.com', 'name'=>'Fernando Guzman')
 	);
+	
 	$sendSmtpEmail['templateId'] = 2;
 	$sendSmtpEmail['params'] = array(
 	
