@@ -1,5 +1,24 @@
 <?php
 	require_once(__DIR__ . '/vendor/autoload.php');
+	require_once(__DIR__ . '../conexi.php');
+	
+	$link = Conectarse();
+	
+	$consulta = "SELECT * FROM productos WHERE existencia_productos < min_productos AND usa_inventario = 'SI'";
+	
+	$result = mysqli_query($link, $consulta);
+	
+	while($fila = mysqli_fetch_assoc($result)){
+		
+		$productos[] = [
+		"NOMBRE" => $fila["descripcion_productos"], 
+		"PRECIO" => $fila["existencia_productos"]
+		];
+	}
+	
+	
+	
+	
 	
 	// Configure API key authorization: api-key
 	$config = SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', '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');
@@ -20,18 +39,7 @@
 	$sendSmtpEmail['templateId'] = 2;
 	$sendSmtpEmail['params'] = array(
 	
-	'productos'=> array(
-	
-	array(
-	"NOMBRE" => "LAPIZ", 
-	"PRECIO" => "25"
-	
-	),
-	array(
-	"NOMBRE" => "PLUMA", 
-	"PRECIO" => "10"
-	
-	)
+	'productos'=> $productos;
 	
 	)
 	
