@@ -1,71 +1,74 @@
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api-key
-$config = SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', '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');
-
-// Uncomment below line to configure authorization using: partner-key
-// $config = SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('partner-key', 'YOUR_API_KEY');
-
-$apiInstance = new SendinBlue\Client\Api\TransactionalEmailsApi(
+	require_once(__DIR__ . '/vendor/autoload.php');
+	
+	// Configure API key authorization: api-key
+	$config = SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', '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');
+	
+	// Uncomment below line to configure authorization using: partner-key
+	// $config = SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('partner-key', 'YOUR_API_KEY');
+	
+	$apiInstance = new SendinBlue\Client\Api\TransactionalEmailsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
-);
-$sendSmtpEmail = new \SendinBlue\Client\Model\SendSmtpEmail(); // \SendinBlue\Client\Model\SendSmtpEmail | Values to send a transactional email
-$sendSmtpEmail['to'] = array(
-array('email'=>'ferchuse@hotmail.com', 'name'=>'Fernando Guzman')
-);
-$sendSmtpEmail['templateId'] = 2;
-$sendSmtpEmail['params'] = array(
-
-'tabla'=>'
-<table>
-	<tr>
-	<th>Producto</th>
-	<th>Existencia</th>
-	</tr>
-	<tr>
-	<td>Hojas Blancas</td>
-	<td>10</td>
-	</tr>
-	</table>'
-
-);
-$sendSmtpEmail['headers'] = array('X-Mailin-custom'=>'custom_header_1:custom_value_1|custom_header_2:custom_value_2');
-
-try {
-    $result = $apiInstance->sendTransacEmail($sendSmtpEmail);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TransactionalEmailsApi->sendTransacEmail: ', $e->getMessage(), PHP_EOL;
-}
-
+	);
+	$sendSmtpEmail = new \SendinBlue\Client\Model\SendSmtpEmail(); // \SendinBlue\Client\Model\SendSmtpEmail | Values to send a transactional email
+	$sendSmtpEmail['to'] = array(
+	array('email'=>'ferchuse@hotmail.com', 'name'=>'Fernando Guzman')
+	);
+	$sendSmtpEmail['templateId'] = 2;
+	$sendSmtpEmail['params'] = array(
+	
+	'productos'=> array(
+	
+	array(
+	"NOMBRE" => "LAPIZ", 
+	"PRECIO" => "25"
+	
+	),
+	array(
+	"NOMBRE" => "PLUMA", 
+	"PRECIO" => "10"
+	
+	)
+	
+	)
+	
+	);
+	$sendSmtpEmail['headers'] = array('X-Mailin-custom'=>'custom_header_1:custom_value_1|custom_header_2:custom_value_2');
+	
+	try {
+		$result = $apiInstance->sendTransacEmail($sendSmtpEmail);
+		print_r($result);
+		} catch (Exception $e) {
+		echo 'Exception when calling TransactionalEmailsApi->sendTransacEmail: ', $e->getMessage(), PHP_EOL;
+	}
+	
 	exit();
 	/*
-	
-// PHP SDK: https://github.com/sendinblue/APIv3-php-library
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api-key
-$config = SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', 'YOUR_API_KEY');
-
-$apiInstance = new SendinBlue\Client\Api\ContactsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$createContact = new \SendinBlue\Client\Model\CreateContact(); // \SendinBlue\Client\Model\CreateContact | Values to create a contact
-$createContact['email'] = 'john@doe.com';
-  
-try {
-    $result = $apiInstance->createContact($createContact);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ContactsApi->createContact: ', $e->getMessage(), PHP_EOL;
-}
-
-*/
+		
+		// PHP SDK: https://github.com/sendinblue/APIv3-php-library
+		require_once(__DIR__ . '/vendor/autoload.php');
+		
+		// Configure API key authorization: api-key
+		$config = SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', 'YOUR_API_KEY');
+		
+		$apiInstance = new SendinBlue\Client\Api\ContactsApi(
+		// If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+		// This is optional, `GuzzleHttp\Client` will be used as default.
+		new GuzzleHttp\Client(),
+		$config
+		);
+		$createContact = new \SendinBlue\Client\Model\CreateContact(); // \SendinBlue\Client\Model\CreateContact | Values to create a contact
+		$createContact['email'] = 'john@doe.com';
+		
+		try {
+		$result = $apiInstance->createContact($createContact);
+		print_r($result);
+		} catch (Exception $e) {
+		echo 'Exception when calling ContactsApi->createContact: ', $e->getMessage(), PHP_EOL;
+		}
+		
+	*/
 ?>
