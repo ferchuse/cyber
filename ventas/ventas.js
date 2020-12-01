@@ -257,6 +257,7 @@ $(document).ready( function onLoad(){
 	//Autocomplete Productos https://github.com/devbridge/jQuery-Autocomplete
 	$("#buscar_producto").autocomplete({
 		serviceUrl: "control/productos_autocomplete.php",   
+		noCache: true,   
 		onSelect: function alSeleccionarProducto(eleccion){
 			console.log("Elegiste: ",eleccion);
 			if(eleccion.data.unidad_productos == 'KG'){

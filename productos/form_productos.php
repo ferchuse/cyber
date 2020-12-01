@@ -22,7 +22,23 @@
 								<label for="">Descripción: *</label>
 								<input placeholder="Nombre del producto" required class="form-control" type="text" name="descripcion_productos" id="descripcion_productos">
 							</div>
-							
+							<div class="form-group">
+								<label required for="unidad_productos">Unidad de Medida:</label>
+								<select  class="form-control" id="unidad_productos" name="unidad_productos">
+									<option value="">Elije...</option>
+									<option selected value="PZA">Pieza</option>
+									<option value="KG">A Granel</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label required for="unidad_productos">Usa Inventario:</label>
+								<select  class="form-control" id="usa_inventario" name="usa_inventario">
+									<option value="">Elije...</option>
+									<option selected value="SI">SI</option>
+									<option  value="NO">NO</option>
+									
+								</select>
+							</div>
 							<div class="form-group">
 								<label required for="id_departamentos">Departamento:</label>
 								<?php echo generar_select($link, "departamentos", "id_departamentos", "nombre_departamentos")?>

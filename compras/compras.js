@@ -98,6 +98,7 @@ $(document).ready(function(){
 		$("#cantidad").focus();
 	});
 	
+	$('#piezas').keyup(modificarPrecio );
 	$('#costo_mayoreo').keyup(modificarPrecio );
 	$('#ganancia_menudeo_porc').keyup(calculaPrecioVenta );
 	$('#precio_menudeo').keyup(calculaGanancia );

@@ -122,7 +122,7 @@
 		</form>
 		<form id="form_imprimir_codigos" target="_blank" action="../impresion/imprimir_codigos.php">
 		</form>
-		<?php include('../forms/productos.php'); ?>
+		<?php include('form_productos.php'); ?>
 		<?php include('../forms/existencias.php'); ?>
 		
 		<?php  include('../scripts_carpetas.php'); ?>
