@@ -135,12 +135,12 @@ function confirmaCancelarVenta(event) {
 	
 	
 	alertify.confirm()
-  .setting({
-    'reverseButtons': true,
+	.setting({
+		'reverseButtons': true,
 		'labels' :{ok:"SI", cancel:'NO'},
-    'title': "Confirmar" ,
-    'message': "¿Deseas cancelar esta venta?" ,
-    'onok':cancelarVenta
+		'title': "Confirmar" ,
+		'message': "¿Deseas cancelar esta venta?" ,
+		'onok':cancelarVenta
 	}).show();
 	
 	
@@ -180,13 +180,13 @@ function confirmaCancelarIngreso(event) {
 	
 	
 	alertify.confirm()
-  .setting({
-    'reverseButtons': true,
+	.setting({
+		'reverseButtons': true,
 		'labels' :{ok:"SI", cancel:'NO'},
-    'title': "Confirmar" ,
-    'message': "¿Deseas cancelar esta Entrada?" ,
-    'onok':cancelarIngreso,
-    'oncancel': function(){
+		'title': "Confirmar" ,
+		'message': "¿Deseas cancelar esta Entrada?" ,
+		'onok':cancelarIngreso,
+		'oncancel': function(){
 			boton.prop('disabled', false);
 			
 		}
@@ -248,17 +248,23 @@ function confirmaCerrarTurno(){
 	
 	
 	alertify.confirm()
-  .setting({
-    'reverseButtons': true,
+	.setting({
+		'reverseButtons': true,
 		'labels' :{ok:"SI", cancel:'NO'},
-    'title': "Confirmar" ,
-    'message': "¿Desea cerrar el turno?" ,
-    'onok':cerrarTurno
+		'title': "Confirmar" ,
+		'message': "¿Desea cerrar el turno?" ,
+		'onok':cerrarTurno
 	}).show();
 }
 
 
 function cerrarTurno(){
+	
+	
+	$.ajax({
+		'url': '../sendinblue/enviar_correo.php'
+	});
+	
 	
 	$.ajax({
 		'method': 'POST',

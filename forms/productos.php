@@ -51,13 +51,13 @@
 							<div class="form-group ">
 								<label >Precio de Venta:</label>
 								
-								<input placeholder="PRECIO" type="number" min="0"  step=".01" class="form-control" id="precio_menudeo" name="precio_menudeo">
+								<input placeholder="PRECIO" type="number"  step=".01" class="form-control" id="precio_menudeo" name="precio_menudeo">
 								
 							</div>
 							<div class="form-group ">
 								<label for="precio_mayoreo">Precio Mayoreo:</label>
 								
-								<input placeholder="" type="number" min="0.1"  step=".01" class="form-control" id="precio_mayoreo" name="precio_mayoreo">
+								<input placeholder="" type="number"  step=".01" class="form-control" id="precio_mayoreo" name="precio_mayoreo">
 							</div>  
 							<div class="form-group ">
 								<label for="existencia_productos">Existencia:</label>
