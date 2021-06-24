@@ -1,4 +1,8 @@
 <?php
+	header('Expires: Sun, 01 Jan 2014 00:00:00 GMT');
+	header('Cache-Control: no-store, no-cache, must-revalidate');
+	header('Cache-Control: post-check=0, pre-check=0', FALSE);
+	header('Pragma: no-cache');
 	header('Content-Type: application/json');
 	include("../conexi.php");
 	$link=Conectarse();
@@ -19,29 +23,29 @@
 	cantidad_contenedora AS cantidad_productos,
 	precioventa_mayoreo_productos AS precio,
 	'MAYOREO' AS tipo_precio
-FROM
+	FROM
 	productos
-WHERE
+	WHERE
 	descripcion_productos LIKE '%$term%'
 	AND costo_productos > 0
 	AND cantidad_contenedora > 1
-UNION
+	UNION
 	SELECT
-		id_productos,
-		codigo_productos,
-		descripcion_productos,
-		unidad_productos AS unidad_productos,
-		1,
-		precioventa_menudeo_productos as precio,
-		'MENUDEO' AS tipo_precio
+	id_productos,
+	codigo_productos,
+	descripcion_productos,
+	unidad_productos AS unidad_productos,
+	1,
+	precioventa_menudeo_productos as precio,
+	'MENUDEO' AS tipo_precio
 	
 	FROM
-		productos
+	productos
 	WHERE
-		descripcion_productos LIKE '%$term%'
-		AND costo_productos > 0
+	descripcion_productos LIKE '%$term%'
+	AND costo_productos > 0
 	ORDER BY
-		descripcion_productos";
+	descripcion_productos";
 	
 	
 	
@@ -80,7 +84,7 @@ UNION
 		
 		
 		$fila = array("value" => $value, "label" => $label, "extras" => $row, "campo" => $campo );
-	
+		
 		
 		array_push($respuesta, $fila);
 		
@@ -94,5 +98,5 @@ UNION
 	echo(json_encode($respuesta)); 
 	
 	
-
+	
 ?>
