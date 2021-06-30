@@ -76,9 +76,9 @@
 										
 									</div>
 									<div class="form-group ">
-										<label for="precio_mayoreo">Ultimo Precio Mayoreo:</label>
+										<label for="ultimo_precio_mayoreo">Ultimo Precio Mayoreo:</label>
 										
-										<input readonly placeholder="" type="number"  step=".01" class="form-control" id="precio_mayoreo" name="precio_mayoreo">
+										<input readonly placeholder="" type="number"  step=".01" class="form-control" id="ultimo_precio_mayoreo" name="ultimo_precio_mayoreo">
 									</div> 
 								</div> 
 								<div class="col-md-6">
