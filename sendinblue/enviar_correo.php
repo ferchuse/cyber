@@ -19,12 +19,29 @@
 		];
 	}
 	
+	//busca api key
+	$consulta_emisor	= "SELECT * FROM emisores
+	WHERE id_emisores = '1'";
 	
+	$result = mysqli_query($link, $consulta_emisor);
 	
+	if($result && mysqli_num_rows($result)){
+		$respuesta["consulta_facturas_estatus"] = "success";
+		while($fila = mysqli_fetch_assoc($result)){
+			$emisor = $fila;
+		}
+		
+	}
+	else{
+		
+		echo mysqli_error($link);
+		echo $consulta_facturas;
+	}
 	
+	$api_key = $emisor["api_sendinblue"];
 	
 	// Configure API key authorization: api-key
-	$config = SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', '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');
+	$config = SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', $api_key);
 	
 	// Uncomment below line to configure authorization using: partner-key
 	// $config = SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('partner-key', 'YOUR_API_KEY');
