@@ -19,6 +19,8 @@
 	min_productos = '{$_POST["min_productos"]}',
 	id_departamentos = '{$_POST["id_departamentos"]}',
 	existencia_productos = '{$_POST["existencia_productos"]}',
+	fecha_alta = NOW(),
+	fecha_mod = NOW(),
 	usa_inventario = '{$_POST["usa_inventario"]}'
 	
 	
@@ -36,6 +38,7 @@
 	min_productos = '{$_POST["min_productos"]}',
 	id_departamentos = '{$_POST["id_departamentos"]}',
 	existencia_productos = '{$_POST["existencia_productos"]}',
+	fecha_mod = NOW(),
 	usa_inventario = '{$_POST["usa_inventario"]}'
 	
 	;
