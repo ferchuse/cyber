@@ -30,7 +30,7 @@ function listarRegistros(){
 				boton.prop('disabled',true);
 				icono.toggleClass('fa-trash fa-spinner fa-spin fa-floppy-o');
 				var fila = boton.closest('tr');
-				var id_usuarios = boton.data('id_usuarios');
+				var id_usuarios = boton.data('id_registro');
 				var eliminar = function(){
 					$.ajax({
 						url: '../control/eliminar_normal.php',
