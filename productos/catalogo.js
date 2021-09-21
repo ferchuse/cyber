@@ -105,6 +105,11 @@ $(document).ready(function () {
 		return false;
 	})
 	
+	$('#btn_exportar').on('click', function filtrar(event){
+		
+		window.open("exportar_excel.php?" + $('#form_filtros').serialize() );
+		
+	});
 	
 	
 	listaProductos();

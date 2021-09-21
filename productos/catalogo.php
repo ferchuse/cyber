@@ -7,21 +7,21 @@
 ?>
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<style>
 			#respuesta_rep{
 			color: red;
 			}
 		</style>
-    <title>Productos</title>
+		<title>Productos</title>
 		
 		<?php include("../styles_carpetas.php");?>
 		
 	</head>
-  <body>
+	<body>
 		
 		<?php include("../menu_carpetas.php");?>
 		
@@ -29,7 +29,19 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12">
-					<h4 class="text-center">Productos</h4>
+					<h4 class="text-center">Productos
+						
+						<button type="button" class="btn btn-success pull-right btn-sm" id="btn_alta">
+							<i class="fa fa-plus"></i> Nuevo
+						</button>
+						<button type="submit" form="form_imprimir_codigos" class="btn btn-sm btn-info pull-right" >
+							<i class="fa fa-print"></i> Imprimir Códigos  
+							(<span id="cant_seleccionados">0</span>)
+						</button>
+						<button id="btn_exportar"  class="btn btn-secondary d-print-none  pull-right btn-sm">
+							<i class="fa fa-file-excel"></i> Exportar
+						</button>
+					</h4>
 				</div>
 			</div>
 			
@@ -64,17 +76,10 @@
 							</select>
 						</div>
 						
-						<button type="submit" class="btn btn-primary" id="btn_buscar">
+						<button type="submit" class="btn btn-sm btn-primary" id="btn_buscar">
 							<i class="fa fa-search"></i> Buscar
 						</button>
 					</form>
-					<button type="button" class="btn btn-success pull-right" id="btn_alta">
-						<i class="fa fa-plus"></i> Nuevo
-					</button>
-					<button type="submit" form="form_imprimir_codigos" class="btn btn-info pull-right" >
-						<i class="fa fa-print"></i> Imprimir Códigos  
-						(<span id="cant_seleccionados">0</span>)
-					</button>
 					
 				</div>
 			</div>
