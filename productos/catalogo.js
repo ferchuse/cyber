@@ -22,7 +22,7 @@ function listaProductos() {
 			
 			tableTemplate += `
 			<tr class="${bgClass}">
-			<td class="text-center">${value.descripcion_productos}</td>
+			<td class="text-left">${value.descripcion_productos}</td>
 			<td class="text-center">${value.codigo_productos} </td>
 			<td class="text-center">${value.costo_proveedor} </td>
 			<td class="text-center">${value.ganancia_menudeo_porc} % </td>
@@ -63,7 +63,7 @@ function listaProductos() {
 		$(".buscar_codigo").keyup( buscarCodigo);
 		$(".buscar_descripcion").keyup( buscarDescripcion);
 		
-		
+		$("#contar_productos").text($("#bodyProductos tr" ).length)
 		
 		}).fail(function(xhr, textStatus, ernum){
 		alertify.error("Ocurrio un Error" + errnum);
@@ -91,6 +91,7 @@ function buscarDescripcion() {
 	var indice = $(this).data("indice");
 	var valor_filtro = $(this).val();
 	var num_rows = buscar(valor_filtro, 'tabla_productos', indice);
+		$("#contar_productos").text(num_rows)
 	if (num_rows == 0) {
 		$('#mensaje').html("<div class='alert alert-warning text-center'><strong>No se ha encontrado.</strong></div>");
 		} else {

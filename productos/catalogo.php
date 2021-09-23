@@ -104,7 +104,10 @@
 								<th class="text-center">
 									<input type="text" class="form-control buscar_descripcion" data-indice="0" placeholder="Buscar descripcion" name="descripcion_productos" form="form_filtros">
 								</th>
-								<th colspan="8">
+								<th colspan="7">
+								</th>
+								<th >
+									<span class="badge badge-success" id="contar_productos"></span>
 								</th>
 							</tr>
 						</thead>
