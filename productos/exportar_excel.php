@@ -60,7 +60,7 @@
 	"Departamento",
 	"Usa inventario",
 	"Fecha de Captura",
-	"Fecha de Modificacion",
+	"Fecha de Modificacion"
 	
 	]
 	];
@@ -85,7 +85,10 @@
 		$fila["min_productos"],
 		$fila["existencia_productos"],
 		normalizeChars($fila["nombre_departamentos"]),
-		$fila["usa_inventario"]
+		$fila["usa_inventario"],
+		$fila["fecha_alta"],
+		$fila["fecha_mod"]
+		
 		
 		
 		];

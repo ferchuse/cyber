@@ -107,7 +107,7 @@
 									<div class="form-group ">
 										<label >Precio de Venta: *</label>
 										
-										<input placeholder="PRECIO" type="number" min="0"  step=".01" class="form-control" id="precio_menudeo" name="precio_menudeo">
+										<input required placeholder="PRECIO" type="number" min="0"  step=".01" class="form-control" id="precio_menudeo" name="precio_menudeo">
 										
 									</div>
 									<div class="form-group ">
